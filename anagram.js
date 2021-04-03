@@ -15,12 +15,6 @@ function isAnagram(word1, word2) {
         } 
         freq_word1[char] -= 1
     }
-
-    // for (let key in freq_word1) {
-    //     if(!(freq_word1[key] == freq_word2[key])){
-    //         return false
-    //     }
-    // }
     return true
 }
 
