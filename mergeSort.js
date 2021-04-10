@@ -23,5 +23,14 @@ function merge(arr1, arr2){
     return arr
 }
 
-let res = merge([1,2,3,7,8,9],[4,5,6]);
+function mergeSort(arr){
+
+    if (arr.length <= 1) return arr;
+    let middle = Math.floor(arr.length/2);
+    let left = mergeSort(arr.slice(0,middle));
+    let right = mergeSort(arr.slice(middle));
+    return merge(left, right);
+}
+
+let res = mergeSort([5,1,3,7,8,2,9,4,6]);
 console.log(res);
