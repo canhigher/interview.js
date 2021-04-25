@@ -121,19 +121,18 @@ class SinglyLinkedList {
     }
     reverse() {
         let current = this.head
-        let prev = this.head
-        while (current.next) {
-            let temp = null;
-            if(!current == this.head) {
-                temp = this.head.next
-                this.head = current
-                this.head.next = null
-                current = current.next
-            }
-            else {
-                temp = current.next
-            }
+        let prev = null
+        let next = null;    
+        this.head = this.tail
+        this.tail = current
+        while (current) {
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
         }
+        // this.head = current
+        return this
     }
 }
 
@@ -147,7 +146,7 @@ list.push(4)
 list.push(5)
 list.print()
 console.log("---")
-list.remove(2)
+list.reverse()
 // let res = list.set(2,8)
 // console.log(res);
 list.print()
