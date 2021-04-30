@@ -59,6 +59,22 @@ class BinarySearchTree {
   _size() {
     return this.size;
   }
+  BFS() {
+    let current = this.root;
+    let queue = [current];
+    let visited = [];
+    while (queue.length) {
+      current = queue.shift();
+      visited.push(current.data);
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.right) {
+        queue.push(current.right);
+      }
+    }
+    return visited;
+  }
 }
 
 let myTree = new BinarySearchTree();
@@ -71,3 +87,5 @@ let found = myTree.find(9);
 console.log("found: ", found);
 let size = myTree._size();
 console.log("size", size);
+let bfs = myTree.BFS();
+console.log(bfs);
