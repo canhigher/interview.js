@@ -5,12 +5,13 @@ var rangeSumBST = function (root, low, high) {
   let total = 0;
   let current = root;
   function helper(node) {
+    if (!node) return 0;
     if (node.val >= low && node.val <= high) {
       total += node.val;
     }
     helper(node.right);
     helper(node.left);
   }
-  helper(current);
+  helper(node);
   return total;
 };
