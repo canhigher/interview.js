@@ -75,7 +75,7 @@ class BinarySearchTree {
     }
     return visited;
   }
-  DFSInOrder() {
+  DFSPreOrder() {
     let visited = [];
     let current = this.root;
     function traverse(node) {
