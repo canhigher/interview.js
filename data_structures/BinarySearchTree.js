@@ -75,17 +75,31 @@ class BinarySearchTree {
     }
     return visited;
   }
+  DFSInOrder() {
+    let visited = [];
+    let current = this.root;
+    function traverse(node) {
+      visited.push(node.data);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return visited;
+  }
 }
 
 let myTree = new BinarySearchTree();
 myTree.push(10);
-myTree.push(5);
+myTree.push(6);
+myTree.push(15);
+myTree.push(3);
 myTree.push(8);
-myTree.push(13);
-myTree.push(9);
+myTree.push(20);
 let found = myTree.find(9);
 console.log("found: ", found);
 let size = myTree._size();
 console.log("size", size);
-let bfs = myTree.BFS();
-console.log(bfs);
+// let bfs = myTree.BFS();
+// console.log("BFS:",bfs);
+let dfs = myTree.DFSInOrder();
+console.log("DFS:", dfs);
