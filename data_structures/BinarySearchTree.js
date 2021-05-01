@@ -97,6 +97,17 @@ class BinarySearchTree {
     traverse(current);
     return visited;
   }
+  DFSPostOrder() {
+    let visited = [];
+    let current = this.root;
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      visited.push(node.data);
+    }
+    traverse(current);
+    return visited;
+  }
 }
 
 let myTree = new BinarySearchTree();
