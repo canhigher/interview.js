@@ -8,8 +8,8 @@ var rangeSumBST = function (root, low, high) {
     if (node.val >= low && node.val <= high) {
       total += node.val;
     }
-    if (node.right) helper(node.right);
-    if (node.left) helper(node.left);
+    helper(node.right);
+    helper(node.left);
   }
   helper(current);
   return total;
